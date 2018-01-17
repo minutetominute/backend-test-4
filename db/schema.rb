@@ -10,11 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719183956) do
+ActiveRecord::Schema.define(version: 20180116215308) do
 
   create_table "calls", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "to"
+    t.string "from"
+    t.datetime "end_time"
+    t.text "voicemail_url"
+    t.string "call_sid"
+    t.string "status"
+    t.integer "duration"
+    t.index ["call_sid"], name: "index_calls_on_call_sid"
+  end
+
+  create_table "voice_responses", force: :cascade do |t|
+    t.string "name"
+    t.text "xml"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_voice_responses_on_name"
   end
 
 end

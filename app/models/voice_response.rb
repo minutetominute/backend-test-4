@@ -1,0 +1,2 @@
+class VoiceResponse < ApplicationRecord
+end

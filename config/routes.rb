@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope '/calls' do
+    get '', to: 'calls#index'
+    post '', to: 'calls#create'
+    get 'handle-gather', to: 'calls#handle_gather'
+    post 'voicemail', to: 'calls#voicemail'
+    post 'status', to: 'calls#update'
+  end
 end

@@ -1,0 +1,29 @@
+<h1>Calls</h1>
+
+<table class="bordered">
+    <thead>
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Status</th>
+            <th>Duration (in seconds)</th>
+            <th>Voicemail</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @calls.each do |call| %>
+            <tr>
+                <td><%= call.from %></td>
+                <td><%= call.to %></td>
+                <td><%= call.status %></td>
+                <td><%= call.duration %></td>
+                <td>
+                    <% if call.voicemail_url %>
+                        <a href="<%= call.voicemail_url %>">link</a>
+                    <% end %>
+                </td>
+            </tr>
+    <% end %>
+    </tbody>
+</table>
